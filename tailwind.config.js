@@ -4,7 +4,11 @@ module.exports = {
     "./src/**/*.{html,js}"
   ],
   theme: {
-    extend: {},
+    extend: {
+      gridTemplateColumns: {
+        autoFit: 'repeat(auto-fit, minmax(300px, 1fr))'
+      }
+    },
   },
   plugins: [],
 }
