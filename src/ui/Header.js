@@ -10,7 +10,9 @@ const Header = () => {
 
       <nav className='space-x-4'>
 
-        <NavLink to='/about'>About</NavLink>
+        <NavLink to='/about' className={(e) => {
+          console.log(e);
+        }}>About</NavLink>
         <NavLink to='contact'>Contact</NavLink>
 
       </nav>
