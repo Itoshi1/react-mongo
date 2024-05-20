@@ -1,17 +1,34 @@
 import React from 'react'
-import { Outlet } from 'react-router'
-import { NavLink } from 'react-router-dom'
+import { products } from '../dummy/data';
+import { useNavigate } from 'react-router';
+
 
 const Home = () => {
+
+  const nav = useNavigate();
+
+  const person = {
+    address: {
+      city: 'BTK'
+    }
+  };
+  console.log(person.address?.city);
+
+
   return (
-    <div>
-      <h1>This is home</h1>
-      <h1>Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores, consequuntur dignissimos! Minima itaque commodi eveniet magni ullam blanditiis architecto, sequi cum fuga labore adipisci iure reprehenderit delectus corrupti repudiandae consectetur. Eum, necessitatibus. Placeat, vero modi quidem ut, laudantium sed illo natus odio blanditiis unde quae error delectus est! Asperiores, magni.</h1>
+    <div className='p-4'>
 
-      <NavLink to='/' className='bg-red-300'>Go to Child 1</NavLink>
-      <NavLink to='/child2' className='bg-green-300'>Go to Child 2</NavLink>
+      <div>
+        {products.map((product) => {
+          return <div onClick={() => nav(`/product/${product.id}`)} key={product.id} className='space-y-2 cursor-pointer mb-4'>
+            <h1 className='text-2xl'>{product.title}</h1>
+            <img src={product.thumbnail} alt="" />
 
-      <Outlet />
+          </div>
+        })}
+
+      </div>
+
     </div>
   )
 }
